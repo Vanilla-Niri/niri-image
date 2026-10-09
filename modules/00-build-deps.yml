@@ -1,0 +1,28 @@
+name: build-deps
+type: apt
+sources:
+  - packages:
+    - rust-all
+    - clang
+
+    # xwayland-satellite
+    - xcb
+    - libxcb-cursor0
+    - libxcb-cursor-dev
+    - pkg-config
+    - xwayland
+
+    # niri
+    - gcc
+    - libudev-dev
+    - libgbm-dev
+    - libxkbcommon-dev
+    - libegl1-mesa-dev
+    - libwayland-dev
+    - libinput-dev
+    - libdbus-1-dev
+    - libsystemd-dev
+    - libseat-dev
+    - libpipewire-0.3-dev
+    - libpango1.0-dev
+    - libdisplay-info-dev

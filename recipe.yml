@@ -1,0 +1,42 @@
+name: Vanilla Niri
+id: niri
+vibversion: 1.1.0
+
+stages:
+- id: build
+  base: ghcr.io/vanilla-kde/base:dev
+  addincludes: true
+  singlelayer: false
+  labels:
+    maintainer: Fangcat_Dev
+  args:
+    DEBIAN_FRONTEND: noninteractive
+  runs:
+    commands:
+      - echo 'APT::Install-Recommends "1";' > /etc/apt/apt.conf.d/01norecommends
+  cleanup:
+    - /tmp/*
+    - /root/.cargo
+
+  modules:
+  - name: init-setup
+    type: shell
+    commands:
+    - lpkg --unlock
+    - apt update
+    - apt clean
+
+  - name: packages-modules
+    type: includes
+    includes:
+      - modules/00-build-deps.yml
+      - modules/10-xwayland-satellite.yml
+      - modules/20-niri.yml
+      - modules/99-cleanup.yml
+
+  - name: cleanup-and-sysconf-setup
+    type: shell
+    commands:
+    - apt autoremove -y
+    - apt clean
+    - lpkg --lock

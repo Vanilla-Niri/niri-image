@@ -1,0 +1,13 @@
+name: xwayland-satellite
+type: shell
+sources:
+  - type: git
+    url: https://github.com/Supreeeme/xwayland-satellite.git
+    tag: v0.8.2
+commands:
+  - cd /sources/xwayland-satellite/xwayland-satellite
+  - cargo build --release
+  - cargo install cargo-deb
+  - cargo deb
+  - apt install -y ./target/debian/xwayland-satellite_*.deb
+
