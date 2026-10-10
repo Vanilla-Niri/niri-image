@@ -7,5 +7,6 @@ sources:
 commands:
   - cd /sources/niri/niri
   - cargo build --release
+  - cargo install cargo-deb
   - cargo deb
   - apt install -y ./target/debian/niri_*.deb
