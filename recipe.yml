@@ -32,6 +32,8 @@ stages:
       - modules/00-build-deps.yml
       - modules/10-xwayland-satellite.yml
       - modules/20-niri.yml
+      - modules/30-applications.yml
+      - modules/90-misc-setup.yml
       - modules/99-cleanup.yml
 
   - name: cleanup-and-sysconf-setup

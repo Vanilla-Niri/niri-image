@@ -1,0 +1,11 @@
+name: applications
+type: apt
+sources:
+  - packages:
+    - gdm3
+
+    - alacritty
+    - nautilus
+    - gnome-software
+    
+
