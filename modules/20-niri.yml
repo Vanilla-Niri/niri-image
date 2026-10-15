@@ -1,12 +1,6 @@
 name: niri
-type: shell
-sources:
-  - type: git
-    url: https://github.com/niri-wm/niri.git
-    tag: v26.04
-commands:
-  - cd /sources/niri/niri
-  - cargo build --release
-  - cargo install cargo-deb
-  - cargo deb
-  - apt install -y ./target/debian/niri_*.deb
+type: cargo-deb
+source:
+  type: git
+  url: https://github.com/niri-wm/niri.git
+  tag: v26.04
