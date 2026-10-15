@@ -35,7 +35,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: vanilla-os/vib-gh-action@v1.1.0
+      - uses: vanilla-Niri/vib-gh-action@v1.1.1
         with:
             recipe: 'recipe.yml'
 
